@@ -1,0 +1,108 @@
+datasets:
+  cifar10:
+    aliases:
+      - cifar10
+    common:
+      data_root: ./data
+      encoder: dinov3
+      encoder_size: 112
+      pool_size: 4
+      more_features: 1
+      temps: "0.05"
+      steps: 50000
+      evaluate_every: 1000
+    standard_drifting:
+      batch_size: 1000
+      fid_eval_weights: raw,ema
+    driftxpress:
+      batch_size: 1000
+      fid_eval_weights: raw,ema
+      landmark_strategy: random_per_class
+      landmarks_per_class: 500
+      kmeans_iters: 20
+      ridge: 0.0001
+      repulsion: exact
+      shard_by_class: 0
+
+  cifar100:
+    aliases:
+      - cifar100
+    common:
+      data_root: ./data
+      encoder: dinov3
+      encoder_size: 112
+      pool_size: 4
+      more_features: 1
+      temps: "0.05"
+      steps: 50000
+      evaluate_every: 1000
+    standard_drifting:
+      batch_size: 800
+    driftxpress:
+      batch_size: 800
+      fid_eval_weights: raw
+      landmark_strategy: random_per_class
+      landmarks_per_class: 150
+      kmeans_iters: 20
+      ridge: 0.0001
+      repulsion: exact
+      shard_by_class: 1
+      classes_per_shard: 10
+      folded_exact_attraction: 1
+
+  svhn:
+    aliases:
+      - svhn
+    common:
+      data_root: ./data
+      encoder: dinov3
+      encoder_size: 112
+      pool_size: 4
+      more_features: 1
+      temps: "0.05"
+      steps: 50000
+      evaluate_every: 1000
+    standard_drifting:
+      batch_size: 1000
+      fid_eval_weights: raw,ema
+    driftxpress:
+      batch_size: 1000
+      fid_eval_weights: raw,ema
+      landmark_strategy: random_per_class
+      landmarks_per_class: 500
+      kmeans_iters: 20
+      ridge: 0.0001
+      repulsion: exact
+      shard_by_class: 0
+
+  imagenet:
+    aliases:
+      - imagenet
+      - imagenet32
+    common:
+      data_source: data/Imagenet32_train.zip
+      encoder: dinov3
+      encoder_size: 112
+      pool_size: 4
+      more_features: 1
+      temps: "0.05"
+      steps: 50000
+      evaluate_every: 1000
+    standard_drifting:
+      batch_size: 1000
+      real_batch_size: 1000
+      real_feature_batch_size: 256
+      fid_eval_weights: raw
+    driftxpress:
+      batch_size: 1000
+      feature_batch_size: 128
+      fid_eval_weights: raw
+      class_ratio: 10
+      landmark_strategy: random_per_class
+      landmarks_per_class: 150
+      ridge: 0.0001
+      landmark_seed: 0
+      kmeans_iters: 20
+      repulsion: exact
+      shard_by_class: 1
+      restrict_training_to_selected_classes: 1

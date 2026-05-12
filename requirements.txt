@@ -1,0 +1,10 @@
+numpy>=1.26
+Pillow>=10.0
+PyYAML>=6.0
+tqdm>=4.66
+pytorch-fid>=0.3.0
+timm>=1.0.0
+transformers>=4.40
+huggingface-hub>=0.23
+open-clip-torch>=2.24
+safetensors>=0.4
