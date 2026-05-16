@@ -195,11 +195,11 @@ python Xpress/release/report_fid.py \
 If you use this code, please cite the paper:
 
 ```bibtex
-@article{driftxpress2026,
-  title   = {DriftXpress: Faster Drifting Models via Projected RKHS Fields},
-  author  = {Ali Falahati, Elliot Creager, Gautam Kamath, Shubhankar Mohapatra},
-  journal = {Preprint},
-  year    = {2026}
+@article{falahati2026driftxpress,
+  title={DriftXpress: Faster Drifting Models via Projected RKHS Fields},
+  author={Falahati, Ali and Creager, Elliot and Kamath, Gautam and Mohapatra, Shubhankar},
+  journal={arXiv preprint arXiv:2605.12183},
+  year={2026}
 }
 ```
 
