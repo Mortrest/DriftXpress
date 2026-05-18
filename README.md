@@ -63,6 +63,31 @@ pip install -r Xpress/release/requirements.txt
 
 ## Quick start
 
+## Pretrained checkpoints
+
+This release does not currently include downloadable pretrained generator checkpoints.
+To make the project usable out of the box, please publish trained `drift_final.pt`
+checkpoints for the supported dataset and method combinations, either as GitHub
+release assets or in a public model hub, and document the download URLs here.
+
+Suggested minimum release set:
+
+| Dataset | Method | Suggested checkpoint path |
+|---|---|---|
+| CIFAR-10 | `driftxpress` | `checkpoints/cifar10/driftxpress/drift_final.pt` |
+| CIFAR-10 | `standard-drifting` | `checkpoints/cifar10/standard/drift_final.pt` |
+| CIFAR-100 | `driftxpress` | `checkpoints/cifar100/driftxpress/drift_final.pt` |
+| SVHN | `driftxpress` | `checkpoints/svhn/driftxpress/drift_final.pt` |
+
+Once checkpoints are published, users should be able to run evaluation without
+first training on a CUDA machine:
+
+```bash
+python Xpress/release/report_fid.py \
+  --dataset cifar10 \
+  --checkpoint checkpoints/cifar10/driftxpress/drift_final.pt
+```
+
 Run DriftXpress on CIFAR-10:
 
 ```bash
